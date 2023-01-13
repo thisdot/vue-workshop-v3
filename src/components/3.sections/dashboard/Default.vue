@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex';
+// import { mapGetters, mapState } from 'vuex';
 import RandomArticle from '../../4.base/dashboard.randomArticle';
 
 export default {
@@ -50,9 +50,12 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      articles: (state) => state.articles.articles,
-    }),
+    // Deviation start: use pinia here instead of vuex
+    articles: () => [],
+    // ...mapState({
+    //   articles: (state) => state.articles.articles,
+    // }),
+    // Deviation end
     filteredArticles() {
       return this.articles.filter((article) => {
         const content = article.content.toLowerCase();

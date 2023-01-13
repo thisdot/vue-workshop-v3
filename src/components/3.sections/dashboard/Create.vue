@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+// import { mapActions } from 'vuex';
 
 export default {
   name: 'Create',
@@ -24,7 +24,10 @@ export default {
   },
   components: {},
   methods: {
-    ...mapActions(['addArticle']),
+    // Deviation start: use pinia here instead of vuex
+    addArticle() {},
+    // ...mapActions(['addArticle']),
+    // Deviation end
     submit() {
       this.addArticle(this.article);
       this.$router.push('/dashboard');

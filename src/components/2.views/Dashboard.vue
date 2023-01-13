@@ -11,7 +11,8 @@
 <script>
 // @ is an alias to /src
 import Authenticated from '@/components/1.layouts/Authenticated';
-import { mapActions } from 'vuex';
+// TODO: Replace this with a pinia
+// import { mapActions } from 'vuex';
 
 export default {
   nam: 'Dashboard',
@@ -20,7 +21,11 @@ export default {
     await this.getArticles();
   },
   methods: {
-    ...mapActions(['getArticles', 'logout']),
+    // Deviation start: use pinia here instead of vuex
+    getArticles() {},
+    logout() {},
+    // ...mapActions(['getArticles', 'logout']),
+    // Deviation end
     async handleLogout() {
       await this.logout();
       this.$router.push('/');
