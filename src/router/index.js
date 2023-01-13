@@ -55,14 +55,26 @@ const router = createRouter({
         },
       ],
     },
-    // {
-    //   path: "/exercise/1",
-    //   component: ExerciseOne,
-    // },
-    // {
-    //   path: "/exercise/2",
-    //   component: ExerciseTwo,
-    // },
+    {
+      path: '/exercise/1',
+      component: () => import('@/components/2.views/ExerciseOne.vue'),
+    },
+    {
+      path: '/exercise/2',
+      component: () => import('@/components/2.views/ExerciseTwo.vue'),
+    },
+    {
+      path: '/exercise/3',
+      component: () => import('@/components/2.views/ExerciseThree.vue'),
+    },
+    {
+      path: '/exercise/4',
+      component: () => import('@/components/2.views/ExerciseFour.vue'),
+    },
+    {
+      path: '/exercise/5',
+      component: () => import('@/components/2.views/ExerciseFive.vue'),
+    },
   ],
 });
 
