@@ -1,4 +1,5 @@
 import { RouterLinkStub, shallowMount } from '@vue/test-utils';
+import { describe, it, expect } from 'vitest';
 import Component from '@/components/4.base/dashboard.randomArticle.vue';
 
 describe('dashboard.randomArticle.vue', () => {
