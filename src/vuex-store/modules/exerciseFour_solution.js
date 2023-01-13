@@ -5,7 +5,7 @@ export default {
     jokes: [],
   },
   getters: {
-    getJoke: state => id => state.jokes.find(joke => joke.id === id), //to use a getter, we need to make sure that jokes are always retrieved on load!
+    getJoke: (state) => (id) => state.jokes.find((joke) => joke.id === id), //to use a getter, we need to make sure that jokes are always retrieved on load!
   },
   mutations: {
     SET_JOKES(state, jokes) {

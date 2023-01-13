@@ -26,7 +26,7 @@ const articles = [
 ];
 
 const getArticles = async () => {
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return articles;
 };
 

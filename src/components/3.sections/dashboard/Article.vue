@@ -26,7 +26,7 @@ export default {
   },
   created() {
     this.article = this.$store.getters.getArticle(
-      this.$route.params.article_id,
+      this.$route.params.article_id
     );
   },
   methods: {

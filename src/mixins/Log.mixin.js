@@ -15,7 +15,7 @@ export default {
     log(source, message) {
       console.log(
         `%c Mixin: Inside ${source} - ${message}`,
-        `background: ${this.logBackground}; color: ${this.logColour}`,
+        `background: ${this.logBackground}; color: ${this.logColour}`
       );
     },
   },

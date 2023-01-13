@@ -27,12 +27,12 @@ const jokes = [
 ];
 
 const fetchJokes = async () => {
-  await new Promise(resolve => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return jokes;
 };
 
-const fetchJoke = id => {
-  return jokes.find(joke => joke.id == id);
+const fetchJoke = (id) => {
+  return jokes.find((joke) => joke.id == id);
 };
 
 const fetchFirstJoke = jokes[0];

@@ -32,7 +32,7 @@ describe('dashboard.randomArticle.vue', () => {
     });
 
     expect(wrapper.find('.content').element.textContent.length).toBeLessThan(
-      props.content.length,
+      props.content.length
     );
   });
 
@@ -50,7 +50,7 @@ describe('dashboard.randomArticle.vue', () => {
 
     expect(wrapper.find(RouterLinkStub).props().to.name).toBe('Article');
     expect(wrapper.find(RouterLinkStub).props().to.params.article_id).toBe(
-      props.article_id,
+      props.article_id
     );
   });
 });

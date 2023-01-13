@@ -51,10 +51,10 @@ export default {
   },
   computed: {
     ...mapState({
-      articles: state => state.articles.articles,
+      articles: (state) => state.articles.articles,
     }),
     filteredArticles() {
-      return this.articles.filter(article => {
+      return this.articles.filter((article) => {
         const content = article.content.toLowerCase();
         const title = article.title.toLowerCase();
         const filter = this.filter.toLowerCase();

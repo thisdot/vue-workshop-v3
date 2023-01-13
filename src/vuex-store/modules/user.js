@@ -4,7 +4,7 @@ export default {
     peferredLanguage: 'en',
   },
   getters: {
-    isLoggedIn: state => !!state.username,
+    isLoggedIn: (state) => !!state.username,
   },
   mutations: {
     SET_NAME(state, username) {
@@ -13,7 +13,7 @@ export default {
   },
   actions: {
     login({ commit }, username) {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           localStorage.setItem('vue-training-username', username);
 
