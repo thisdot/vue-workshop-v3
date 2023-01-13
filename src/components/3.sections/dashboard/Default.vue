@@ -65,7 +65,11 @@ export default {
         return content.includes(filter) || title.includes(filter);
       });
     },
-    ...mapGetters(['randomArticle']),
+    // Deviation start: use pinia here instead of vuex
+    randomArticle: () =>
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda repellendus necessitatibus saepe nisi eius deserunt provident harum eveniet eos aut est iusto, neque, animi vero debitis repudiandae velit mollitia laboriosam.', // TODO: Replace this with actual getter from pinia
+    // ...mapGetters(['randomArticle']),
+    // Deviation end
   },
   methods: {
     getArticleDetails(article) {

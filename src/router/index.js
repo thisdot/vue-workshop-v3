@@ -26,35 +26,35 @@ const router = createRouter({
         }
       },
     },
-    // {
-    //   path: '/dashboard',
-    //   component: import('@/components/2.views/Dashboard.vue'),
-    //   beforeEnter(to, from, next) {
-    //     const loggedIn = localStorage.getItem('vue-training-username');
-    //     if (!loggedIn) {
-    //       next({ path: '/login' });
-    //     } else {
-    //       next();
-    //     }
-    //   },
-    //   children: [
-    //     {
-    //       path: '',
-    //       name: 'Default',
-    //       component: import('@/components/3.sections/dashboard/Default.vue'),
-    //     },
-    //     {
-    //       path: 'article/:article_id',
-    //       name: 'Article',
-    //       component: import('@/components/3.sections/dashboard/Article.vue'),
-    //     },
-    //     {
-    //       path: 'create',
-    //       name: 'Create',
-    //       component: import('@/components/3.sections/dashboard/Create.vue'),
-    //     },
-    //   ],
-    // },
+    {
+      path: '/dashboard',
+      component: import('@/components/2.views/Dashboard.vue'),
+      beforeEnter(to, from, next) {
+        const loggedIn = localStorage.getItem('vue-training-username');
+        if (!loggedIn) {
+          next({ path: '/login' });
+        } else {
+          next();
+        }
+      },
+      children: [
+        {
+          path: '',
+          name: 'Default',
+          component: import('@/components/3.sections/dashboard/Default.vue'),
+        },
+        {
+          path: 'article/:article_id',
+          name: 'Article',
+          component: import('@/components/3.sections/dashboard/Article.vue'),
+        },
+        {
+          path: 'create',
+          name: 'Create',
+          component: import('@/components/3.sections/dashboard/Create.vue'),
+        },
+      ],
+    },
     // {
     //   path: "/exercise/1",
     //   component: ExerciseOne,
