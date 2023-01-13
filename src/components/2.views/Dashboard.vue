@@ -10,7 +10,7 @@
 
 <script>
 // @ is an alias to /src
-import Authenticated from '@/components/1.layouts/Authenticated';
+import Authenticated from '@/components/1.layouts/Authenticated.vue';
 // TODO: Replace this with a pinia
 // import { mapActions } from 'vuex';
 

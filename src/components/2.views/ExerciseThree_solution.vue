@@ -38,7 +38,7 @@
 //   this.joke = await fetchJoke(jokeId);
 // }
 
-import Static from '@/components/1.layouts/Static';
+import Static from '@/components/1.layouts/Static.vue';
 
 export default {
   name: 'ExerciseThree',

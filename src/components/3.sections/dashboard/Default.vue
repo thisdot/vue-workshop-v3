@@ -37,7 +37,7 @@
 
 <script>
 // import { mapGetters, mapState } from 'vuex';
-import RandomArticle from '../../4.base/dashboard.randomArticle';
+import RandomArticle from '@/components/4.base/dashboard.randomArticle.vue';
 
 export default {
   name: 'Default',

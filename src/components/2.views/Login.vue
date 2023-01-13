@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Static from '@/components/1.layouts/Static';
+import Static from '@/components/1.layouts/Static.vue';
 // import { mapActions } from 'vuex';
 
 export default {
