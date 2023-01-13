@@ -15,7 +15,7 @@
         :key="article.id"
       >
         <router-link
-          :to="{ name: 'Article', params: { article_id: article.id } }"
+          :to="{ name: 'MyArticle', params: { article_id: article.id } }"
           class="default__article-title"
           >{{ article.title }}</router-link
         >

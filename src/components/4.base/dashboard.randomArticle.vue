@@ -2,7 +2,7 @@
   <div>
     <p class="title">{{ title }}</p>
     <p class="content">{{ articleExtract }}</p>
-    <router-link :to="{ name: 'Article', params: { article_id } }" class
+    <router-link :to="{ name: 'MyArticle', params: { article_id } }" class
       >Read All</router-link
     >
   </div>
