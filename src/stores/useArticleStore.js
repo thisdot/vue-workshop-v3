@@ -38,6 +38,7 @@ export const useArticleStore = defineStore('article', {
       this.archivedArticles = [...this.articles, article];
     },
     addArticle(article) {
+      article = { id: this.articles.length + 1, ...article };
       this.articles = [...this.articles, article];
     },
   },
