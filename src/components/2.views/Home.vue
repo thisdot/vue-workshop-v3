@@ -17,8 +17,8 @@
 <script>
 // @ is an alias to /src
 import Static from '@/components/1.layouts/Static.vue';
-// TODO: Replace this with pinia
-// import { mapGetters } from 'vuex';
+import { mapGetters } from 'pinia';
+import { useUserStore } from '@/stores';
 import LogMixin from '@/mixins/Log.mixin';
 
 export default {
@@ -26,12 +26,7 @@ export default {
   mixins: [LogMixin],
   components: { Static },
   computed: {
-    // Deviation start: use pinia here instead of vuex
-    isLoggedIn() {
-      return true;
-    },
-    // ...mapGetters(['isLoggedIn']),
-    // Deviation end
+    ...mapGetters(useUserStore, ['isLoggedIn']),
   },
   created() {
     this.log('Logging from inside Home View');

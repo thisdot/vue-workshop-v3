@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapActions } from 'pinia';
+import { mapActions, mapGetters, mapState } from 'pinia';
 import { useArticleStore } from '@/stores';
 
 export default {
@@ -18,6 +18,8 @@ export default {
     };
   },
   computed: {
+    ...mapState(useArticleStore, ['articles']),
+    ...mapGetters(useArticleStore, ['getArticle']),
     title() {
       return this.article && this.article.title;
     },
@@ -25,13 +27,18 @@ export default {
       return this.article && this.article.content;
     },
   },
-  created() {
-    this.article = this.$store.getters.getArticle(
-      this.$route.params.article_id
-    );
+  async created() {
+    /* 
+      Ensure that if the page is reloaded and we don't yet have articles loaded for the page, they get loaded in.
+      When navigating from articles, this will be skipped and the experience will be fluid but if we load this page on its own, we need to make sure we have the articles loaded in.
+    */
+    if (!this.articles?.length) {
+      await this.getArticles();
+    }
+    this.article = this.getArticle(this.$route.params.article_id);
   },
   methods: {
-    ...mapActions(useArticleStore, ['archiveArticle']),
+    ...mapActions(useArticleStore, ['archiveArticle', 'getArticles']),
     async archive() {
       this.archiveArticle(this.$route.params.article_id);
     },

@@ -9,11 +9,8 @@ export const useArticleStore = defineStore('article', {
     archivedArticles: [],
   }),
   getters: {
-    getArticle: (state) => (id) => {
-      return (
-        state.articles && state.articles.find((article) => article.id === id)
-      );
-    },
+    getArticle: (state) => (id) =>
+      state.articles.find((article) => article.id === parseInt(id)),
     randomArticle: (state) => {
       if (state.articles.length === 0) return;
       const randomArticleId = getRandomArticleId(state.articles.length);
