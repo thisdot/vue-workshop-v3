@@ -10,8 +10,9 @@
 </template>
 
 <script>
+import { mapActions } from 'pinia';
+import { useUserStore } from '@/stores';
 import Static from '@/components/1.layouts/Static.vue';
-// import { mapActions } from 'vuex';
 
 export default {
   name: 'Login',
@@ -25,10 +26,7 @@ export default {
     };
   },
   methods: {
-    // Deviation start: use pinia here instead of vuex
-    login() {}, // TODO: Replace this with a pinia action
-    // ...mapActions(['login']),
-    // Deviation end
+    ...mapActions(useUserStore, ['login']),
     async submit() {
       if (!this.username) {
         alert('Username is required!');
