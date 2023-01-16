@@ -1,31 +1,28 @@
-export default {
-  state: {
+import { defineStore } from 'pinia';
+
+export const useUserStore = defineStore('user', {
+  state: () => ({
     username: localStorage.getItem('vue-training-username') || '',
     peferredLanguage: 'en',
-  },
+  }),
   getters: {
     isLoggedIn: (state) => !!state.username,
   },
-  mutations: {
-    SET_NAME(state, username) {
-      state.username = username;
-    },
-  },
   actions: {
-    login({ commit }, username) {
+    login(username: string) {
       return new Promise((resolve) => {
         setTimeout(() => {
           localStorage.setItem('vue-training-username', username);
 
-          commit('SET_NAME', username);
+          this.username = username;
 
-          resolve();
+          resolve(username);
         }, 500);
       });
     },
-    async logout({ commit }) {
+    async logout() {
       localStorage.removeItem('vue-training-username');
-      commit('SET_NAME', '');
+      this.username = '';
     },
   },
-};
+});
