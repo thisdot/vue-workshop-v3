@@ -27,7 +27,6 @@ export default {
   },
   computed: {
     articleExtract() {
-      console.log('this.content', this.content);
       if (this.content.length <= 300) return this.content;
 
       return `${this.content.substring(0, 300)} ...`;
