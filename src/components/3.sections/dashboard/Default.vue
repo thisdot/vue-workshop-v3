@@ -15,7 +15,7 @@
         :key="article.id"
       >
         <router-link
-          :to="{ name: 'MyArticle', params: { article_id: article.id } }"
+          :to="{ name: 'Article', params: { article_id: article.id } }"
           class="default__article-title"
           >{{ article.title }}</router-link
         >
@@ -36,7 +36,8 @@
 </template>
 
 <script>
-// import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapState } from 'pinia';
+import { useArticleStore } from '@/stores';
 import RandomArticle from '@/components/4.base/dashboard.randomArticle.vue';
 
 export default {
@@ -50,12 +51,7 @@ export default {
     };
   },
   computed: {
-    // Deviation start: use pinia here instead of vuex
-    articles: () => [],
-    // ...mapState({
-    //   articles: (state) => state.articles.articles,
-    // }),
-    // Deviation end
+    ...mapState(useArticleStore, ['articles']),
     filteredArticles() {
       return this.articles.filter((article) => {
         const content = article.content.toLowerCase();
@@ -65,11 +61,7 @@ export default {
         return content.includes(filter) || title.includes(filter);
       });
     },
-    // Deviation start: use pinia here instead of vuex
-    randomArticle: () =>
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda repellendus necessitatibus saepe nisi eius deserunt provident harum eveniet eos aut est iusto, neque, animi vero debitis repudiandae velit mollitia laboriosam.', // TODO: Replace this with actual getter from pinia
-    // ...mapGetters(['randomArticle']),
-    // Deviation end
+    ...mapGetters(useArticleStore, ['randomArticle']),
   },
   methods: {
     getArticleDetails(article) {

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-// TODO: Replace this with pinia
-// import { mapActions } from 'vuex';
+import { mapActions } from 'pinia';
+import { useArticleStore } from '@/stores';
 
 export default {
   name: 'MyArticle',
@@ -31,10 +31,7 @@ export default {
     );
   },
   methods: {
-    // Deviation start: use pinia here instead of vuex
-    archiveArticle() {},
-    // ...mapActions(['archiveArticle']),
-    // Deviation end
+    ...mapActions(useArticleStore, ['archiveArticle']),
     async archive() {
       this.archiveArticle(this.$route.params.article_id);
     },
