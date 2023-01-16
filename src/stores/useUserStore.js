@@ -9,7 +9,7 @@ export const useUserStore = defineStore('user', {
     isLoggedIn: (state) => !!state.username,
   },
   actions: {
-    login(username: string) {
+    login(username) {
       return new Promise((resolve) => {
         setTimeout(() => {
           localStorage.setItem('vue-training-username', username);
