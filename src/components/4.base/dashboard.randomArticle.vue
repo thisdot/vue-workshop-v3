@@ -2,7 +2,7 @@
   <div>
     <p class="title">{{ title }}</p>
     <p class="content">{{ articleExtract }}</p>
-    <router-link :to="{ name: 'MyArticle', params: { article_id } }" class
+    <router-link :to="{ name: 'Article', params: { article_id } }" class
       >Read All</router-link
     >
   </div>
@@ -27,6 +27,7 @@ export default {
   },
   computed: {
     articleExtract() {
+      console.log('this.content', this.content);
       if (this.content.length <= 300) return this.content;
 
       return `${this.content.substring(0, 300)} ...`;

@@ -11,21 +11,18 @@
 <script>
 // @ is an alias to /src
 import Authenticated from '@/components/1.layouts/Authenticated.vue';
-// TODO: Replace this with a pinia
-// import { mapActions } from 'vuex';
+import { mapActions } from 'pinia';
+import { useUserStore, useArticleStore } from '@/stores';
 
 export default {
-  nam: 'Dashboard',
+  name: 'Dashboard',
   components: { Authenticated },
   async created() {
     await this.getArticles();
   },
   methods: {
-    // Deviation start: use pinia here instead of vuex
-    getArticles() {},
-    logout() {},
-    // ...mapActions(['getArticles', 'logout']),
-    // Deviation end
+    ...mapActions(useUserStore, ['logout']),
+    ...mapActions(useArticleStore, ['getArticles']),
     async handleLogout() {
       await this.logout();
       this.$router.push('/');
