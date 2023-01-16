@@ -27,12 +27,14 @@ export const useArticleStore = defineStore('article', {
       const articleIndex = this.articles.findIndex(
         (article) => article.id == article_id
       );
+
       if (articleIndex < 0) return;
 
       const article = this.articles[articleIndex];
 
       this.articles.splice(articleIndex, 1);
       this.archivedArticles = [...this.articles, article];
+      return true;
     },
     addArticle(article) {
       article = { id: this.articles.length + 1, ...article };

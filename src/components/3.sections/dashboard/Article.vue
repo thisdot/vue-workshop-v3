@@ -40,7 +40,15 @@ export default {
   methods: {
     ...mapActions(useArticleStore, ['archiveArticle', 'getArticles']),
     async archive() {
-      this.archiveArticle(this.$route.params.article_id);
+      const archived = this.archiveArticle(this.$route.params.article_id);
+
+      if (archived) {
+        const shouldRedirect = confirm(
+          'Successfully archived article! Redirect to articles?'
+        );
+
+        shouldRedirect ? this.$router.push('/dashboard') : null;
+      }
     },
   },
 };
