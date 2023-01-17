@@ -36,7 +36,6 @@ npm run dev
 We encourage you to attempt to complete each exercise on your own before looking at the provided solutions to maximize on your learning experience.
 
 - To view the output of exercise 1, you can go to [localhost:5173/exercise/1](http://localhost:5173/exercise/1) after running the above command
-  - To view the solution for exercise 1, go to [localhost:5173/exercise/1/solution](http://localhost:5173/exercise/1/solution)
 
 ### Type-Check, Compile and Minify for Production
 
