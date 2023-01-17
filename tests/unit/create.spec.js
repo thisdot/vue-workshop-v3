@@ -1,5 +1,6 @@
 import Vuex from 'vuex';
 import { mount, createLocalVue } from '@vue/test-utils';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import Component from '@/components/3.sections/dashboard/create.vue';
 
 const localVue = createLocalVue();
@@ -11,7 +12,7 @@ describe('create.vue', () => {
 
   beforeEach(() => {
     actions = {
-      addArticle: jest.fn(),
+      addArticle: vi.fn(),
     };
     store = new Vuex.Store({
       actions,
@@ -45,7 +46,7 @@ describe('create.vue', () => {
     };
     const expectedRouterPath = '/dashboard';
     const $router = {
-      push: jest.fn(),
+      push: vi.fn(),
     };
 
     const wrapper = mount(Component, {
