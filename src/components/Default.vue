@@ -36,7 +36,11 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: 'Default',
+};
+</script>
 
 <style lang="scss" scoped>
 .default {
