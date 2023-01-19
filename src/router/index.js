@@ -5,11 +5,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/components/Default.vue'),
+      component: () => import('@/components/3.sections/dashboard/Default.vue'),
     },
     {
       path: '/exercise/1',
-      component: () => import('@/components/ExerciseOne.vue'),
+      component: () => import('@/components/2.views/ExerciseOne.vue'),
     },
   ],
 });

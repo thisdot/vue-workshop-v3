@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import RandomArticle from '../../4.base/dashboard.randomArticle';
+import RandomArticle from '@/components/4.base/dashboard.randomArticle.vue';
 import getArticles from '@/assets/articles.js';
 
 export default {
