@@ -14,11 +14,9 @@
         v-for="article in filteredArticles"
         :key="article.id"
       >
-        <router-link
-          :to="{ name: 'Article', params: { article_id: article.id } }"
-          class="default__article-title"
-          >{{ article.title }}</router-link
-        >
+        <router-link to="/" class="default__article-title">{{
+          article.title
+        }}</router-link>
         <p class="default__article-content">{{ getArticleDetails(article) }}</p>
       </li>
     </ol>
