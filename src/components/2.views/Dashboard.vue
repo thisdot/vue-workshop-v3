@@ -6,8 +6,8 @@
 
 <script>
 // @ is an alias to /src
-import Authenticated from '@/components/1.layouts/Authenticated';
-import DashboardDefault from '@/components/3.sections/dashboard/Default';
+import Authenticated from '@/components/1.layouts/Authenticated.vue';
+import DashboardDefault from '@/components/3.sections/dashboard/Default.vue';
 
 export default {
   nam: 'Dashboard',
