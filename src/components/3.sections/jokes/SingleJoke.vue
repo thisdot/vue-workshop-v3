@@ -8,7 +8,7 @@
 </template>
 
 <script>
-// import { fetchJoke } from '@/assets/jokes.js';
+// import { fetchJoke } from "@/assets/jokes.js";
 
 export default {
   name: 'ExerciseOne',
