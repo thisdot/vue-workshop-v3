@@ -11,6 +11,10 @@ const router = createRouter({
       path: '/exercise/1',
       component: () => import('@/components/2.views/ExerciseOne.vue'),
     },
+    {
+      path: '/exercise/2',
+      component: () => import('@/components/2.views/ExerciseTwo.vue'),
+    },
   ],
 });
 
