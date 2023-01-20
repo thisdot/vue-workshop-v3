@@ -21,7 +21,7 @@ import { fetchJokes } from '@/assets/jokes.js';
 import ExerciseOne from './ExerciseOne_solution';
 
 export default {
-  name: 'ExerciseSix',
+  name: 'ExerciseThree',
   components: {
     ExerciseOne,
   },
