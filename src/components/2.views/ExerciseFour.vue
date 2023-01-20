@@ -16,11 +16,11 @@
 // - Pinia Integration in the component
 
 //Steps
-// - Create a new file within the store/modules folder
-// - Load the new module within the store/index.js
+// - Create a new file within the stores folder
+// - Load the new module and re-export within the stores/index.js
 // - Create an action / state to fetch the jokes
 // - Change the ExerciseTwo to trigger the action
-// - Change exerciseTwo to load jokes from the store
+// - Change exerciseTwo to load jokes from the stores
 // - Use this file to create a simple component to "ADD jokes"
 // - Call required Pinia Action to "add" joke to the state
 
