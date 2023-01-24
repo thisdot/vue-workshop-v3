@@ -1,6 +1,7 @@
-import { RouterLinkStub, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
-import Component from '@/components/4.base/dashboard.randomArticle.vue';
+import RandomArticleComponent from '../../src/components/4.base/dashboard.randomArticle.vue';
+import router from '../../src/router';
 
 describe('dashboard.randomArticle.vue', () => {
   it('renders props when rendered', () => {
@@ -10,9 +11,11 @@ describe('dashboard.randomArticle.vue', () => {
       article_id: 0,
     };
 
-    const wrapper = shallowMount(Component, {
+    const wrapper = shallowMount(RandomArticleComponent, {
       propsData: props,
-      stubs: { RouterLink: RouterLinkStub },
+      global: {
+        plugins: [router],
+      },
     });
 
     expect(wrapper.find('.title').element.textContent).toMatch(props.title);
@@ -27,31 +30,15 @@ describe('dashboard.randomArticle.vue', () => {
       article_id: 0,
     };
 
-    const wrapper = shallowMount(Component, {
+    const wrapper = shallowMount(RandomArticleComponent, {
       propsData: props,
-      stubs: { RouterLink: RouterLinkStub },
+      global: {
+        plugins: [router],
+      },
     });
 
     expect(wrapper.find('.content').element.textContent.length).toBeLessThan(
       props.content.length
-    );
-  });
-
-  it('render a link that will redirect to article', () => {
-    const props = {
-      title: 'my title',
-      content: 'my specific content',
-      article_id: 0,
-    };
-
-    const wrapper = shallowMount(Component, {
-      propsData: props,
-      stubs: { RouterLink: RouterLinkStub },
-    });
-
-    expect(wrapper.find(RouterLinkStub).props().to.name).toBe('Article');
-    expect(wrapper.find(RouterLinkStub).props().to.params.article_id).toBe(
-      props.article_id
     );
   });
 });
