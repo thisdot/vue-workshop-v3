@@ -4,9 +4,8 @@ import RandomArticleComponent from '../../src/components/4.base/dashboard.random
 import router from '../../src/router';
 
 describe('dashboard.randomArticle.vue', () => {
-  it('renders props when rendered', () => {
+  it('renders content prop when rendered', () => {
     const props = {
-      title: 'my title',
       content: 'my specific content',
       article_id: 0,
     };
@@ -18,7 +17,6 @@ describe('dashboard.randomArticle.vue', () => {
       },
     });
 
-    expect(wrapper.find('.title').element.textContent).toMatch(props.title);
     expect(wrapper.find('.content').element.textContent).toMatch(props.content);
   });
 
