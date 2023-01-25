@@ -47,7 +47,7 @@ describe('Create.vue', () => {
       articleStore = useArticleStore(testingPinia);
     });
 
-    it('should trigger the adding of an action when both the title and content have been provided', async () => {
+    it('should trigger the adding of an article when the add article button is clicked', async () => {
       const expectedValues = {
         title: 'title',
         content: 'content',
