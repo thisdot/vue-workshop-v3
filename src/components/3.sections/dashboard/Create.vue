@@ -11,7 +11,7 @@
 
 <script>
 import { mapActions } from 'pinia';
-import { useArticleStore } from '@/stores';
+import { useArticleStore } from '../../../stores';
 
 export default {
   name: 'Create',
@@ -28,7 +28,7 @@ export default {
     ...mapActions(useArticleStore, ['addArticle']),
     submit() {
       this.addArticle(this.article);
-      this.$router.push('/dashboard');
+      this.$router?.push('/dashboard');
     },
   },
 };

@@ -35,51 +35,39 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, ref } from 'vue';
+import { useArticleStore } from '@/stores';
 import RandomArticle from '@/components/4.base/dashboard.randomArticle.vue';
-import getArticles from '@/assets/articles.js';
 
-export default {
-  name: 'Default',
-  components: {
-    RandomArticle,
-  },
-  data() {
-    return {
-      filter: '',
-      articles: [],
-    };
-  },
-  computed: {
-    filteredArticles() {
-      return this.articles.filter((article) => {
-        const content = article.content.toLowerCase();
-        const title = article.title.toLowerCase();
-        const filter = this.filter.toLowerCase();
+const filter = ref('');
 
-        return content.includes(filter) || title.includes(filter);
-      });
-    },
-    randomArticle() {
-      if (this.articles.length === 0) return;
-      const randomArticleId = this.getRandomArticleId(this.articles.length);
-      return this.articles.find((article) => article.id === randomArticleId);
-    },
-  },
-  methods: {
-    getArticleDetails(article) {
-      if (!article) return;
+const useArticle = () => {
+  const articleStore = useArticleStore();
 
-      return `${article.content.substring(0, 160)} ...`;
-    },
-    getRandomArticleId(length) {
-      return Math.floor(Math.random() * length) + 1;
-    },
-  },
-  async created() {
-    this.articles = await getArticles();
-  },
+  const filteredArticles = computed(() =>
+    articleStore.articles?.filter((article) => {
+      const content = article.content.toLowerCase();
+      const title = article.title.toLowerCase();
+      const articleFilter = filter.value.toLowerCase();
+
+      return content.includes(articleFilter) || title.includes(articleFilter);
+    })
+  );
+
+  function getArticleDetails(article) {
+    if (!article) return;
+
+    return `${article.content.substring(0, 160)} ...`;
+  }
+
+  return {
+    filteredArticles,
+    getArticleDetails,
+  };
 };
+
+const { filteredArticles, getArticleDetails } = useArticle();
 </script>
 
 <style lang="scss" scoped>

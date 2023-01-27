@@ -1,49 +1,37 @@
 <template>
-  <Static title="Exercise three">
-    <router-view />
-  </Static>
+  <article>
+    <h1 style="color: black">This is your list of jokes</h1>
+    <div v-if="jokes.length === 0">Hm.. thinking of some jokes..</div>
+    <section v-else>
+      <ExerciseOne v-for="joke in jokes" :key="joke.id" :v-bind="joke" />
+    </section>
+  </article>
 </template>
 
-<script>
-// #router/index.js - import
-//
-// const ExerciseOne = () => import(/* webpackChunkName: 'jokes' */ '@/components/3.sections/Jokes/ExerciseOne.vue');
-// const ExerciseTwo = () => import(/* webpackChunkName: 'jokes' */ '@/components/3.sections/Jokes/ExerciseTwo.vue');
-// const SingleJoke = () => import(/* webpackChunkName: 'jokes' */ '@/components/3.sections/Jokes/SingleJoke.vue');
-// const ExerciseThree = () => import(/* webpackChunkName: 'jokes' */ '@/components/2.views/ExerciseThree.vue');
-//
-// #router/index.js - router
-//
-// {
-//   path: '/jokes',
-//   component: ExerciseThree,
-//   children: [
-//     {
-//       path: '',
-//       name: 'Jokes',
-//       component: ExerciseTwo,
-//     },
-//     {
-//       path: ':joke_id',
-//       name: 'Joke',
-//       component: SingleJoke,
-//     },
-//   ],
-// },
-//
-// #singleJoke - hints
-//
-// async mounted() {
-//   const jokeId = this.$route.params.joke_id;
-//   this.joke = await fetchJoke(jokeId);
-// }
+<script setup>
+import { ref, onMounted } from 'vue';
+import { fetchJokes } from '@/assets/jokes.js';
+import ExerciseOne from './ExerciseOne_solution';
 
-import Static from '@/components/1.layouts/Static.vue';
+// Composition function (Composable)
+const useJokes = () => {
+  const jokes = ref([]);
 
-export default {
-  name: 'ExerciseThree',
-  components: { Static },
+  const fetchAndSetJokes = async () => {
+    jokes.value = await fetchJokes();
+  };
+
+  return {
+    jokes,
+    fetchAndSetJokes,
+  };
 };
+
+const { jokes, fetchAndSetJokes } = useJokes();
+
+onMounted(async () => {
+  await fetchAndSetJokes();
+});
 </script>
 
 <style></style>

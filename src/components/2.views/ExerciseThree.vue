@@ -1,48 +1,39 @@
 <template>
-  <Static title="Exercise three">
-    <router-view />
-  </Static>
+  <article>
+    <h1 style="color: black">This is your list of jokes</h1>
+    <div v-if="jokes.length === 0">Hm.. thinking of some jokes..</div>
+    <section v-else>
+      <ExerciseOne v-for="joke in jokes" :key="joke.id" :v-bind="joke" />
+    </section>
+  </article>
 </template>
 
 <script>
-// #router/index.js - import
-//
-// const ExerciseOne = () => import(/* webpackChunkName: 'jokes' */ '@/components/3.sections/Jokes/ExerciseOne.vue');
-// const ExerciseTwo = () => import(/* webpackChunkName: 'jokes' */ '@/components/3.sections/Jokes/ExerciseTwo.vue');
-// const SingleJoke = () => import(/* webpackChunkName: 'jokes' */ '@/components/3.sections/Jokes/SingleJoke.vue');
-// const ExerciseThree = () => import(/* webpackChunkName: 'jokes' */ '@/components/2.views/ExerciseThree.vue');
-//
-// #router/index.js - router
-//
-// {
-//   path: '/jokes',
-//   component: ExerciseThree,
-//   children: [
-//     {
-//       path: '',
-//       name: 'Jokes',
-//       component: ExerciseTwo,
-//     },
-//     {
-//       path: ':joke_id',
-//       name: 'Joke',
-//       component: SingleJoke,
-//     },
-//   ],
-// },
-//
-// #singleJoke - hints
-//
-// async mounted() {
-//   const jokeId = this.$route.params.joke_id;
-//   this.joke = await fetchJoke(jokeId);
-// }
+//# Exercise 3
+// Summary: This exercise is aimed at introducing you to Vue Composition API
 
-import Static from '@/components/1.layouts/Static.vue';
+// Convert this component to use the composition API
+
+// Create a composable called useJokes that will load and set jokes
+
+// Use the composable within the component's mounted lifecycle hook
+import { fetchJokes } from '@/assets/jokes.js';
+import ExerciseOne from './ExerciseOne_solution';
 
 export default {
-  name: 'ExerciseThree',
-  components: { Static },
+  name: 'ExerciseSix',
+  components: {
+    ExerciseOne,
+  },
+  data() {
+    return {
+      jokes: [],
+    };
+  },
+  computed: {},
+  async mounted() {
+    this.jokes = await fetchJokes();
+  },
 };
 </script>
 

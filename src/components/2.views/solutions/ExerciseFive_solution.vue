@@ -3,7 +3,7 @@
 </template>
 
 <script>
-// #Exercise 4
+// #Exercise 5
 // see store/modules/exerciseFour_solution.js for the sample Vuex Module
 
 // In ExerciseTwo
