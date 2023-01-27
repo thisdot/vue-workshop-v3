@@ -13,10 +13,24 @@ import { ref, onMounted } from 'vue';
 import { fetchJokes } from '@/assets/jokes.js';
 import ExerciseOne from './ExerciseOne_solution';
 
-const jokes = ref([]);
+// Composition function (Composable)
+const useJokes = () => {
+  const jokes = ref([]);
+
+  const fetchAndSetJokes = async () => {
+    jokes.value = await fetchJokes();
+  };
+
+  return {
+    jokes,
+    fetchAndSetJokes,
+  };
+};
+
+const { jokes, fetchAndSetJokes } = useJokes();
 
 onMounted(async () => {
-  await fetchJokes();
+  await fetchAndSetJokes();
 });
 </script>
 

@@ -41,23 +41,33 @@ import { useArticleStore } from '@/stores';
 import RandomArticle from '@/components/4.base/dashboard.randomArticle.vue';
 
 const filter = ref('');
-const articleStore = useArticleStore();
 
-const filteredArticles = computed(() =>
-  articleStore.articles?.filter((article) => {
-    const content = article.content.toLowerCase();
-    const title = article.title.toLowerCase();
-    const articleFilter = filter.value.toLowerCase();
+const useArticle = () => {
+  const articleStore = useArticleStore();
 
-    return content.includes(articleFilter) || title.includes(articleFilter);
-  })
-);
+  const filteredArticles = computed(() =>
+    articleStore.articles?.filter((article) => {
+      const content = article.content.toLowerCase();
+      const title = article.title.toLowerCase();
+      const articleFilter = filter.value.toLowerCase();
 
-function getArticleDetails(article) {
-  if (!article) return;
+      return content.includes(articleFilter) || title.includes(articleFilter);
+    })
+  );
 
-  return `${article.content.substring(0, 160)} ...`;
-}
+  function getArticleDetails(article) {
+    if (!article) return;
+
+    return `${article.content.substring(0, 160)} ...`;
+  }
+
+  return {
+    filteredArticles,
+    getArticleDetails,
+  };
+};
+
+const { filteredArticles, getArticleDetails } = useArticle();
 </script>
 
 <style lang="scss" scoped>

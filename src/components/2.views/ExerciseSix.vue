@@ -11,7 +11,12 @@
 <script>
 //# Exercise 6
 // Summary: This exercise is aimed at introducing you to Vue Composition API
+
 // Convert this component to use the composition API
+
+// Create a composable called useJokes that will load and set jokes
+
+// Use the composable within the component's mounted lifecycle hook
 import { fetchJokes } from '@/assets/jokes.js';
 import ExerciseOne from './ExerciseOne_solution';
 
