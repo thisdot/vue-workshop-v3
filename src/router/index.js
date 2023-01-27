@@ -78,10 +78,6 @@ const router = createRouter({
       path: '/exercise/5',
       component: () => import('@/components/2.views/ExerciseFive.vue'),
     },
-    {
-      path: '/exercise/6',
-      component: () => import('@/components/2.views/ExerciseSix.vue'),
-    },
   ],
 });
 
