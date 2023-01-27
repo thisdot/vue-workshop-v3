@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Static from '@/components/1.layouts/Static';
+import Static from '@/components/1.layouts/Static.vue';
 
 export default {
   name: 'About',

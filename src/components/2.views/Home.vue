@@ -17,6 +17,8 @@
 <script>
 // @ is an alias to /src
 import Static from '@/components/1.layouts/Static.vue';
+import { mapGetters } from 'pinia';
+import { useUserStore } from '@/stores';
 import LogMixin from '@/mixins/Log.mixin';
 
 export default {
@@ -24,7 +26,7 @@ export default {
   mixins: [LogMixin],
   components: { Static },
   computed: {
-    isLoggedIn: () => true,
+    ...mapGetters(useUserStore, ['isLoggedIn']),
   },
   created() {
     this.log('Logging from inside Home View');

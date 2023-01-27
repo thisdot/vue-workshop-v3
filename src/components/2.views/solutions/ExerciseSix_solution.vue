@@ -8,26 +8,30 @@
   </article>
 </template>
 
-<script>
-// #Exercise 2
+<script setup>
+import { ref, onMounted } from 'vue';
 import { fetchJokes } from '@/assets/jokes.js';
 import ExerciseOne from './ExerciseOne_solution';
 
-export default {
-  name: 'ExerciseTwo',
-  components: {
-    ExerciseOne,
-  },
-  data() {
-    return {
-      jokes: [],
-    };
-  },
-  computed: {},
-  async mounted() {
-    this.jokes = await fetchJokes();
-  },
+// Composition function (Composable)
+const useJokes = () => {
+  const jokes = ref([]);
+
+  const fetchAndSetJokes = async () => {
+    jokes.value = await fetchJokes();
+  };
+
+  return {
+    jokes,
+    fetchAndSetJokes,
+  };
 };
+
+const { jokes, fetchAndSetJokes } = useJokes();
+
+onMounted(async () => {
+  await fetchAndSetJokes();
+});
 </script>
 
 <style></style>

@@ -1,31 +1,40 @@
 <template>
-  <div></div>
+  <article>
+    <h1 style="color: black">This is your list of jokes</h1>
+    <div v-if="jokes.length === 0">Hm.. thinking of some jokes..</div>
+    <section v-else>
+      <ExerciseOne v-for="joke in jokes" :key="joke.id" :v-bind="joke" />
+    </section>
+  </article>
 </template>
 
 <script>
-// #Exercise 3
-// Summary: This exercise is aimed at introducing you to vue router and its settings
-// Story: As an user of the website, I would like to have a joke route that will be used to load my jokes list and individual jokes.
+//# Exercise 3
+// Summary: This exercise is aimed at introducing you to Vue Composition API
 
-// This component will feature:
-// - basic vue router
-// - vue router nested routes
-// - Vue router with parameters
-// - use of the Params within the component
-// - Route redirect
+// Convert this component to use the composition API
 
-//Steps
-// - Create a Route for "/jokes"
-// - use this file to be the "layout" of the jokes route and use Static Layout
-// - add a default child component to load "ExerciseTwo"
-// - add another route "/jokes/{joke_id}" to load "/ExerciseOne.vue"
-// - make the three components used in this route part of the same webpack chunk
-// - Change ExerciseOne Joke to be able to either load parameter from rotue or by receiving it from parent
-// - Add a button to "ExerciseOne", to go to the "jokes" view
+// Create a composable called useJokes that will load and set jokes
 
-//EXTRA
-// - Create A new route "/firstJoke" that redirect to "jokes/1" (this uses route redirect)
-// - add logic in "individual Joke" to "redirect back" after 5 seconds of being on the component.
+// Use the composable within the component's mounted lifecycle hook
+import { fetchJokes } from '@/assets/jokes.js';
+import ExerciseOne from './ExerciseOne_solution';
+
+export default {
+  name: 'ExerciseSix',
+  components: {
+    ExerciseOne,
+  },
+  data() {
+    return {
+      jokes: [],
+    };
+  },
+  computed: {},
+  async mounted() {
+    this.jokes = await fetchJokes();
+  },
+};
 </script>
 
 <style></style>
