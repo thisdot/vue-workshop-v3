@@ -45,6 +45,12 @@ const router = createRouter({
             import('@/components/3.sections/dashboard/Default.vue'),
         },
         {
+          path: 'composition',
+          name: 'DefaultComposition',
+          component: () =>
+            import('@/components/3.sections/dashboard/DefaultComposition.vue'),
+        },
+        {
           path: 'article/:article_id',
           name: 'Article',
           component: () =>
@@ -77,6 +83,10 @@ const router = createRouter({
     {
       path: '/exercise/5',
       component: () => import('@/components/2.views/ExerciseFive.vue'),
+    },
+    {
+      path: '/exercise/6',
+      component: () => import('@/components/2.views/ExerciseSix.vue'),
     },
   ],
 });
