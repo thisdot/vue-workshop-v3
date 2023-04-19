@@ -1,13 +1,7 @@
 <template>
   <div id="layout2">
     <div class="header">
-      <a href="/">
-        <img
-          class="authenticated__logo"
-          src="https://placeholder.pics/svg/140x50"
-          alt="vue training logo"
-        />
-      </a>
+      <a class="link link--light" href="/"> &lt; Go back </a>
       <nav class="row authenticated__nav">
         <a class="link link--light" @click="$emit('logout')">Logout</a>
       </nav>
