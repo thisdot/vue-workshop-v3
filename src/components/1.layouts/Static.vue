@@ -24,7 +24,8 @@ export default {
   margin: 80px auto;
   background-color: #ffffff;
   border-radius: 4px;
-  box-shadow: 1px 1px grey;
+  border: 1px solid #ccc;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.05);
 
   & > h1 {
     display: block;

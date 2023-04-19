@@ -2,9 +2,18 @@
   <div class="create">
     <h3>Create an Article</h3>
     <label for="title">Title</label>
-    <input type="text" id="title" v-model="article.title" />
+    <input
+      v-model="article.title"
+      type="text"
+      id="title"
+      placeholder="My Awesome article"
+    />
     <label for="content">Content</label>
-    <input type="text" id="content" v-model="article.content" />
+    <textarea
+      id="content"
+      v-model="article.content"
+      placeholder="Some amazing article content"
+    />
     <button @click="submit">Create & Redirect</button>
   </div>
 </template>
@@ -43,12 +52,20 @@ export default {
   label {
     display: block;
     font-weight: bold;
+    margin-top: 1rem;
   }
 
-  input {
+  input,
+  textarea {
+    width: 100%;
     display: inline-block;
     margin-top: 10px;
     padding: 10px;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 10rem;
   }
 
   button {
