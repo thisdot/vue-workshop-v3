@@ -1,37 +1,32 @@
 <template>
-  <div></div>
+  <article>
+    <h1 style="color: black">This is your list of jokes</h1>
+    <div v-if="jokes.length === 0">Hm.. thinking of some jokes..</div>
+    <section v-else>
+      <ExerciseOne v-for="joke in jokes" :key="joke.id" :joke="joke" />
+    </section>
+  </article>
 </template>
 
 <script>
 // #Exercise 2
-// Summary: In this exercise we are going to improve our Vue knowledge by expanding the previous component and add further features
-// Story: As an user of the website, I would like to have access to a component that will show me a list of all the jokes.
-//        This component should also show me a loading message while the jokes are retrieved.
+import { fetchJokes } from '@/assets/jokes.js';
+import ExerciseOne from './ExerciseOne.vue';
 
-// This component will feature:
-// - Async data loading
-// - Conditional component loading
-// - use of multiple vue directives
-// - async component loading
-// - use of properties
-// - use of mixins
-
-//Steps
-// - async import our ExcerciseOne component
-// - Create basic html and load a single "ExerciseOne"
-// - Asyn load our list of jokes in mounted lifecycle
-// - Use v-for to load multiple Instances of ExerciseOne
-// - Pass the properties down from the current component to "excerciseOne"
-// - Change ExerciseOne to accept properties instead than load its own data (youneed to leave the property used for the hide and show of the punch line)
-// - Create a "loading" HTML and add v-if to make sure there is no error while data is loaded
-
-//EXTRA
-// - Load the Log mixins in the current component
-// - change Excercise one to "emit" a msg when button is clicked
-// - log something (from the parent component) using the Mixins when the button is clicked in the child component
-// - change the colour of the log msg
-
-// import { fetchJokes } from '@/assets/jokes.js';
+export default {
+  name: 'ExerciseTwo',
+  components: {
+    ExerciseOne,
+  },
+  data() {
+    return {
+      jokes: [],
+    };
+  },
+  computed: {},
+  async mounted() {
+    this.jokes = await fetchJokes();
+  },
+};
 </script>
 
-<style></style>
