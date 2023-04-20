@@ -8,6 +8,12 @@ const router = createRouter({
       component: () => import('@/components/3.sections/dashboard/Default.vue'),
     },
     {
+      path: '/article/:article_id',
+      name: 'Article',
+      component: () =>
+        import('@/components/3.sections/dashboard/Article.vue'),
+    },
+    {
       path: '/exercise/1',
       component: () => import('@/components/2.views/ExerciseOne.vue'),
     },
