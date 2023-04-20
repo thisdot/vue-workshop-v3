@@ -1,32 +1,61 @@
 <template>
-  <div></div>
+  <article v-if="joke" class="exerciseOne">
+    <h1>{{ joke.story }}</h1>
+    <p v-show="showPunchLine" class="punchLine">{{ joke.punchLine }}</p>
+    <button @click="showPunchLine = !showPunchLine">{{ buttonText }}</button>
+  </article>
 </template>
 
 <script>
 // #Exercise 1
-// Summary: In this exercise we are going to learn how to develop basic components and start to use Vue.
-// Story: As an user of the website, I would like to have access to a component that will show me a single joke,
-//          and allow me to "show/hide" a punch line.
+import { fetchFirstJoke } from '@/assets/jokes.js';
 
-// This component will feature:
-// - An HTMl with a visible Story
-// - A button to show the "punchLine"
-// - A button text that should change depending if you the punchline is showing or not
-// - A specific joke loaded with the available method
-// - Some style set using style methods below
-
-//Steps
-// - Create basic HTML (with your existing skills, vue not needed here), make all visible, forget about hiding the punch line
-// - Apply styles
-// - Set fetchFirstJoke to component Data
-// - show the Loaded data in the HTML using Vue directives
-// - Create a new Data to manage the component state (to hide, show punch line)
-// - Use v-show to hide show the punch line
-// - use @click to "set" the above state (to show hide punch line)
-// - Create a computed property to "generate" the button text
-// - Apply the above computed properties to the button
-
-//import { fetchFirstJoke } from "@/assets/jokes.js";
+export default {
+  name: 'ExerciseOne',
+  props: {
+    joke: {
+      type: Object,
+      required: false, // This is not needed when providing a default value -> leaving here for demo purposes
+      default: fetchFirstJoke,
+    },
+  },
+  data() {
+    return {
+      showPunchLine: false,
+    };
+  },
+  computed: {
+    buttonText() {
+      return this.showPunchLine
+        ? 'what a bad joke, hide it please'
+        : 'Show Punchline';
+    },
+  },
+};
 </script>
 
-<style></style>
+<style lang="scss">
+.exerciseOne {
+  width: 500px;
+  margin: 50px auto;
+  h1 {
+    font-size: 32px;
+    color: Black;
+  }
+  .punchLine {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px lightgray;
+    background-color: lightgray;
+  }
+  button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background-color: lightgray;
+    font-weight: 800;
+  }
+}
+</style>
