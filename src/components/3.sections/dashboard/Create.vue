@@ -55,19 +55,6 @@ export default {
     margin-top: 1rem;
   }
 
-  input,
-  textarea {
-    width: 100%;
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px;
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 10rem;
-  }
-
   button {
     display: block;
     margin-top: 15px;

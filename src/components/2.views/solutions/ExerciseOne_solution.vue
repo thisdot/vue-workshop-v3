@@ -50,11 +50,5 @@ export default {
     box-shadow: 2px 2px 10px lightgray;
     background-color: lightgray;
   }
-  button {
-    padding: 10px 15px;
-    border-radius: 4px;
-    background-color: lightgray;
-    font-weight: 800;
-  }
 }
 </style>

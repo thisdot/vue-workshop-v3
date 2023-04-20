@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="joke-container"></div>
 </template>
 
 <script>
@@ -24,8 +24,9 @@
 
 //EXTRA
 // - Use v-model with Pinia to add a new joke
-// - Add a watched in the ExerciseTwo to trigger a "log" when Jokes changes
+// - Add a watcher in the ExerciseTwo to trigger a "log" when Jokes changes
 // - Change the values in the chrome/firefox debugger
+export default {
+  name: 'Exercise 5',
+};
 </script>
-
-<style></style>
