@@ -5,19 +5,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/components/Default.vue'),
+      component: () => import('@/components/3.sections/dashboard/Default.vue'),
     },
     {
       path: '/exercise/1',
-      component: () => import('@/components/ExerciseOne.vue'),
+      component: () => import('@/components/2.views/ExerciseOne.vue'),
     },
     {
       path: '/exercise/2',
-      component: () => import('@/components/ExerciseTwo.vue'),
+      component: () => import('@/components/2.views/ExerciseTwo.vue'),
     },
     {
       path: '/exercise/3',
-      component: () => import('@/components/ExerciseThree.vue'),
+      component: () => import('@/components/2.views/ExerciseThree.vue'),
     },
   ],
 });

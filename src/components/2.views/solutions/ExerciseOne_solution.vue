@@ -12,9 +12,14 @@ import { fetchFirstJoke } from '@/assets/jokes.js';
 
 export default {
   name: 'ExerciseOne',
+  props: {
+    joke: {
+      type: Object,
+      required: true,
+    }
+  },
   data() {
     return {
-      joke: fetchFirstJoke,
       showPunchLine: false,
     };
   },
