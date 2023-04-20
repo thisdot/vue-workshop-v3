@@ -7,14 +7,20 @@
 </template>
 
 <script>
-// #Exercise 1
 import { fetchFirstJoke } from '@/assets/jokes.js';
 
+// #Exercise 1
 export default {
   name: 'ExerciseOne',
+  props: {
+    joke: {
+      type: Object,
+      required: false, // This is not needed when you have a default value -> simply here for demo purposes
+      default: fetchFirstJoke,
+    },
+  },
   data() {
     return {
-      joke: fetchFirstJoke,
       showPunchLine: false,
     };
   },
