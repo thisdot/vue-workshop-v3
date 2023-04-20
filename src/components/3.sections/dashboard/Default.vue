@@ -37,7 +37,8 @@
 
 <script>
 import RandomArticle from '@/components/4.base/dashboard.randomArticle.vue';
-import getArticles from '@/assets/articles.js';
+import { useArticleStore } from '@/stores';
+import { mapState, mapActions } from 'pinia';
 
 export default {
   name: 'Default',
@@ -47,10 +48,11 @@ export default {
   data() {
     return {
       filter: '',
-      articles: [],
+      // articles: [],
     };
   },
   computed: {
+    ...mapState(useArticleStore, ['articles']),
     filteredArticles() {
       return this.articles.filter((article) => {
         const content = article.content.toLowerCase();
@@ -67,6 +69,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useArticleStore, ['getArticles']),
     getArticleDetails(article) {
       if (!article) return;
 
@@ -77,7 +80,8 @@ export default {
     },
   },
   async created() {
-    this.articles = await getArticles();
+    console.log('articles are being gotten');
+    await this.getArticles();
   },
 };
 </script>
