@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import getArticles from '../assets/articles';
 
+const getArticlesFromStorage = getArticles;
+
 const getRandomArticleId = (length) => Math.floor(Math.random() * length) + 1;
 
 export const useArticleStore = defineStore('article', {
@@ -19,9 +21,15 @@ export const useArticleStore = defineStore('article', {
   },
   actions: {
     async getArticles() {
-      const articles = await getArticles();
+      const articles = await getArticlesFromStorage();
 
-      this.articles = articles || this.articles;
+      const existingArticleIds = this.articles.map((article) => article.id);
+      // Only add an article if it hasn't already been added
+      const articlesToAdd = articles.filter((article) => {
+        return !existingArticleIds.includes(article.id);
+      });
+
+      this.articles = [...this.articles, ...articlesToAdd] || this.articles;
     },
     archiveArticle(article_id) {
       const articleIndex = this.articles.findIndex(
