@@ -4,7 +4,7 @@
 
 <script>
 // #Exercise 5
-// see store/modules/exerciseFour_solution.js for the sample Vuex Module
+// see store/modules/exerciseFour_solution.js for the sample Pinia Module
 
 // In ExerciseTwo
 // - import { mapActions, mapState } from 'vuex';
