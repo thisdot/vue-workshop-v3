@@ -15,8 +15,9 @@ export default {
   props: {
     joke: {
       type: Object,
-      required: true,
-    }
+      required: false, // This is not needed when providing a default value -> leaving here for demo purposes
+      default: fetchFirstJoke,
+    },
   },
   data() {
     return {
