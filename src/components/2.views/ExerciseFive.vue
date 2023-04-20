@@ -30,3 +30,35 @@ export default {
   name: 'Exercise 5',
 };
 </script>
+
+<style lang="scss" scoped>
+.joke-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  * {
+    display: block;
+  }
+
+  input,
+  textarea {
+    width: 20rem;
+  }
+
+  button {
+    margin-top: 2rem;
+    width: 10rem;
+  }
+
+  section {
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 2rem;
+    width: 100%;
+    max-width: 50rem;
+    min-height: 50vh;
+    margin: 2rem;
+  }
+}
+</style>

@@ -1,10 +1,9 @@
 import { defineStore } from 'pinia';
-import { getJoke, getJokes } from '../../assets/jokes';
 
 export const useJokeStore = defineStore('joke', {
-  state: {
+  state: () => ({
     jokes: [],
-  },
+  }),
   getters: {
     getJoke: (state) => (id) => state.jokes.find((joke) => joke.id === id), //to use a getter, we need to make sure that jokes are always retrieved on load!
   },
@@ -12,13 +11,6 @@ export const useJokeStore = defineStore('joke', {
     addJoke(joke) {
       this.jokes.push(joke);
     },
-    async getJokes() {
-      const jokes = await getJokes();
-      this.jokes = jokes;
-    },
-    async getJoke(joke_id) {
-      const joke = await getJoke(joke_id); //we can use this approach in the case in which we do not want to retrieve the full list on load
-      return joke;
-    },
+    // Mention that actions can be async too
   },
 });
