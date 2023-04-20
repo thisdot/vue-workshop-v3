@@ -6,3 +6,23 @@
 
 @import "basics/links.scss";
 @import "basics/nav.scss";
+
+input,
+textarea {
+  width: 100%;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+button {
+  padding: 10px 15px;
+  border-radius: 4px;
+  background-color: lightgray;
+  font-weight: 800;
+}
