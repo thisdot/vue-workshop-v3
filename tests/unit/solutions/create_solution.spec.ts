@@ -1,8 +1,8 @@
 import { createTestingPinia } from '@pinia/testing';
 import { mount } from '@vue/test-utils';
 import { describe, it, expect, beforeEach, vi, beforeAll } from 'vitest';
-import CreateComponent from '../../src/components/3.sections/dashboard/Create.vue';
-import { useArticleStore } from '../../src/stores/useArticleStore';
+import CreateComponent from '../../../src/components/3.sections/dashboard/Create.vue';
+import { useArticleStore } from '../../../src/stores/useArticleStore';
 
 describe('Create.vue', () => {
   let testingPinia;
